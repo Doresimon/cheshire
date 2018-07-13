@@ -116,6 +116,48 @@
 
     </div>
 
+    <!-- send kitty -->
+    <div class="row">
+      <div class="col-md-12 text-center margin-top-5px">
+        <h2>send kitty</h2>
+      </div>
+
+      <div class="col-md-3 margin-top-5px">
+          from
+        <select class="form-control"
+        v-model="send_data.from">
+          <option :value="{}" selected="selected">Select FROM</option>
+          <option :value="u" v-for="u in users">{{u.nickname}} - {{u.address}}</option>
+        </select>
+      </div>
+
+      <div class="col-md-3 margin-top-5px">
+        to
+        <select class="form-control"
+        v-model="send_data.to">
+          <option :value="{}" selected="selected">Select TO</option>
+          <option :value="u" v-for="u in users">{{u.nickname}} - {{u.address}}</option>
+        </select>
+      </div>
+
+      <div class="col-md-3 margin-top-5px">
+        cat ID (testnet)
+        <input type="number" class="form-control"
+        value = "0"
+        v-model="send_data.catID"
+        >
+      </div>
+
+      <div class="col-md-3 margin-top-5px">
+        ..
+        <button class="btn btn-success btn-block" 
+        @click="sendCat(send_data.from.address, send_data.to.address, send_data.catID)"
+        v-bind:disabled="send_data.from.address==undefined || send_data.to.address==undefined || send_data.catID<1 || send_data.busy==1"
+        >send~</button>
+      </div>
+
+    </div>
+
     <div class="row">
       <div class="col-md-12">
         <div id="cheshire-dashboard">

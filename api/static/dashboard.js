@@ -28,6 +28,12 @@
           user:{},
           busy:0,
         },
+        send_data:{
+          from: {},
+          to: {},
+          catID:0,
+          busy:0,
+        },
         create_data:{
           matronId:0,
           sireId:0,
@@ -103,6 +109,28 @@
           this.kitties.push(d)
 
           _this.create_data.busy = 0
+        },
+
+        // create cat
+        // createKitty(matronId, sireId, generation, genes, owner, apiObject)
+        sendCat: async function(from, to, ID){
+          var _this = this
+
+          _this.send_data.busy = 1
+
+          const params = {
+            fromadd:from,
+            toadd:to,
+            kittyId:ID,
+          }
+
+          this.send_data.newID = (await axios.post('/cheshire/send',params)).data.kittyId2
+
+          var d = (await axios.get('/kitties/'+this.send_data.newID)).data
+
+          this.kitties.push(d)
+
+          _this.send_data.busy = 0
         },
 
       }
