@@ -34,7 +34,7 @@
           generation:0,
           genes:0,
           owner:{},
-          apiObject:0,
+          apiObject:{},
           busy:0,
         },
       },
