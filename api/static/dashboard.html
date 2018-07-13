@@ -14,6 +14,7 @@
 
   margin-top-5px {
     margin-top: 10px;
+    margin-bottom: 10px;
   }
 
   .kitty img {
@@ -106,8 +107,7 @@
         </select>
       </div>
 
-      <div class="col-md-2 margin-top-5px">
-        go
+      <div class="col-md-12 margin-top-5px">
         <button class="btn btn-success btn-block" 
         @click="createCat(create_data.matronId, create_data.sireId, create_data.generation, create_data.genes, create_data.owner.address, create_data.apiObject)"
         v-bind:disabled="create_data.owner.address==undefined || create_data.mainID<1 || create_data.busy==1"
@@ -119,7 +119,7 @@
     <div class="row">
       <div class="col-md-12">
         <div id="cheshire-dashboard">
-          <h2>Contracts</h2>
+          <!-- <h2>Contracts</h2>
           <table v-if="Object.keys(contracts).length > 0" class="table table-striped">
             <thead>
               <tr>
@@ -136,7 +136,7 @@
           </table>
           <div v-else>
             No contracts found
-          </div>
+          </div> -->
 
 
           <h2>Kitties</h2>
@@ -171,47 +171,7 @@
             No kitties found
           </div>
 
-
-
-
-<!--           
-
-
-          <table v-if="kitties.length > 0" class="table table-striped">
-            <thead>
-              <tr>
-                <th></th>
-                <th>ID (testnet)</th>
-                <th>Name</th>
-                <th>Owner</th>
-                <th>Attributes</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="kitty in kitties" class="kitty" :style="'background-color:' + colorMap[kitty.color]">
-                <td><img :src="kitty.image_url_cdn" /></td>
-                <td>{{ kitty.id }}</td>
-                <td>
-                  <span v-if="kitty.name">{{ kitty.name }}</span>
-                  <em v-else class="text-muted">No name</em>
-                </td>
-                <td>{{ kitty.owner.address }}</td>
-                <td>
-                  <a v-on:click="kitty.showAttrs = !kitty.showAttrs" href="javascript:void(0)">
-                    <span v-if="!kitty.showAttrs">Show</span>
-                    <span v-else>Hide</span>
-                  </a>
-
-                  <pre v-if="kitty.showAttrs">{{ kitty }}</pre>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <div v-else>
-            No kitties found
-          </div> -->
-
-          <h2>Users</h2>
+          <!-- <h2>Users</h2>
           <table v-if="users.length > 0" class="table table-striped">
             <thead>
               <tr>
@@ -230,7 +190,7 @@
           </table>
           <div v-else>
             No users found
-          </div>
+          </div> -->
         </div>
 
         
