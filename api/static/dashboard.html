@@ -33,6 +33,7 @@
         <h2>import kitty from main net</h2>
       </div>
       <div class="col-md-4 margin-top-5px">
+        cat ID: 
         <input type="number" class="form-control" 
         placeholder="Main net kitty ID"
         min="1"
@@ -40,6 +41,7 @@
         >
       </div>
       <div class="col-md-4 margin-top-5px">
+        owner: 
         <select class="form-control"
         v-model="import_data.user">
           <option :value="{}" selected="selected">Select Owner</option>
@@ -47,6 +49,7 @@
         </select>
       </div>
       <div class="col-md-4 margin-top-5px">
+        go:
         <button class="btn btn-success btn-block" 
         @click="importCat(import_data.mainID,import_data.user.address)"
         v-bind:disabled="import_data.user.address==undefined || import_data.mainID<1 || import_data.busy==1"
@@ -61,31 +64,41 @@
       </div>
 
       <div class="col-md-2 margin-top-5px">
-        <input type="number" class="form-control"
-        min="1"
-        v-model="create_data.matronId"
+          name
+        <input type="text" class="form-control"
+        placeholder="caffe"
+        v-model="create_data.apiObject.name"
         >
       </div>
       <div class="col-md-2 margin-top-5px">
-        <input type="number" class="form-control"
-        min="1"
-        v-model="create_data.sireId"
+          bio
+        <input type="text" class="form-control"
+        v-model="create_data.apiObject.bio"
         >
       </div>
       <div class="col-md-2 margin-top-5px">
-        <input type="number" class="form-control"
-        min="1"
-        v-model="create_data.generation"
+          color
+        <input type="text" class="form-control"
+        v-model="create_data.apiObject.color"
         >
       </div>
       <div class="col-md-2 margin-top-5px">
+          image_url
+        <input type="text" class="form-control"
+        v-model="create_data.apiObject.image_url_cdn"
+        >
+      </div>
+      <div class="col-md-2 margin-top-5px">
+          genes
         <input type="text" class="form-control"
         placeholder="0x..."
         v-model="create_data.genes"
         >
       </div>
 
-      <div class="col-md-4 margin-top-5px">
+
+      <div class="col-md-2 margin-top-5px">
+          owner
         <select class="form-control"
         v-model="create_data.owner">
           <option :value="{}" selected="selected">Select Owner</option>
@@ -93,10 +106,11 @@
         </select>
       </div>
 
-      <div class="col-md-4 margin-top-5px">
+      <div class="col-md-2 margin-top-5px">
+        go
         <button class="btn btn-success btn-block" 
-        @click="createCat(create_data.matronId, create_data.sireId, create_data.generation, create_data.genes, create_data.owner.address, apiObject)"
-        v-bind:disabled="create_data.user.address==undefined || create_data.mainID<1 || create_data.busy==1"
+        @click="createCat(create_data.matronId, create_data.sireId, create_data.generation, create_data.genes, create_data.owner.address, create_data.apiObject)"
+        v-bind:disabled="create_data.owner.address==undefined || create_data.mainID<1 || create_data.busy==1"
         >create~</button>
       </div>
 

@@ -34,8 +34,16 @@
           generation:0,
           genes:"",
           owner:{},
-          apiObject:{},
+          apiObject:{
+            name:"",
+            bio:"",
+            color:"",
+            image_url:"",
+            image_url_cdn:"",
+          },
           busy:0,
+
+          
         },
       },
 
