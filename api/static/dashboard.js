@@ -32,7 +32,7 @@
           matronId:0,
           sireId:0,
           generation:0,
-          genes:0,
+          genes:"",
           owner:{},
           apiObject:{},
           busy:0,
