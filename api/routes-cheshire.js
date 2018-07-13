@@ -62,3 +62,11 @@ module.exports = new Router()
       address: addressTestnet,
     }
   })
+  .post('/cheshire/send', async (ctx) => {
+    const { fromadd, toadd, kittyId } = ctx.request.body
+    const kittyId2 = await Kitty.sendKitty(fromadd, toadd, kittyId)
+
+    ctx.body = {
+      kittyId2,
+    }
+  })

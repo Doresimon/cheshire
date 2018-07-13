@@ -2022,4 +2022,20 @@ contract KittyCore is KittyMinting {
     {
       return _createKitty(_matronId, _sireId, _generation, _genes, _owner);
     }
+        
+    function sendKitty(
+        address _to,
+        uint256 _tokenId
+    )
+        external
+    {
+        require(_to != address(0));
+        require(_to != address(this));
+        require(_to != address(saleAuction));
+        require(_to != address(siringAuction));
+
+        require(_owns(msg.sender, _tokenId));
+
+        _transfer(msg.sender, _to, _tokenId);
+    }
 }
